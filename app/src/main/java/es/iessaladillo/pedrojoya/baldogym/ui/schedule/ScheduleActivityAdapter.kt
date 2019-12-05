@@ -1,6 +1,5 @@
 package es.iessaladillo.pedrojoya.baldogym.ui.schedule
 
-import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import es.iessaladillo.pedrojoya.baldogym.R
 import es.iessaladillo.pedrojoya.baldogym.data.entity.TrainingSession
+import java.util.*
 
 class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.ViewHolder>() {
 
@@ -59,6 +59,18 @@ class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.
                 lblTitleSession.text = name
                 lblTrainer.text = trainer
                 lblRoom.text = room
+
+                btnJoin.setOnClickListener {
+                    if(userJoined) {
+                        userJoined = false
+                        btnJoin.text = btnJoin.context.getString(R.string.schedule_item_join)
+                        participants -= 1
+                    } else {
+                        userJoined = true
+                        btnJoin.text = btnJoin.context.getString(R.string.schedule_item_quit)
+                        participants += 1
+                    }
+                }
 
                 // No funciona getString por lo que está de esta manera y no con plurals:
                 if(participants <= 1) {

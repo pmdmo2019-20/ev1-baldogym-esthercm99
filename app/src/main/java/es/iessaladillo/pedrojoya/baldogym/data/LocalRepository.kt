@@ -91,4 +91,73 @@ object LocalRepository : Repository {
         return trainingSessions
     }
     override fun queryAllSessions(): List<TrainingSession> = trainingSession
+    override fun queryMonSessions(): List<TrainingSession> {
+        val list: MutableList<TrainingSession> = mutableListOf()
+        for (i in 0 until trainingSession.size) {
+            if (trainingSession[i].weekDay == WeekDay.MONDAY) {
+                list.add(trainingSession[i])
+            }
+        }
+        return list
+    }
+
+    override fun queryTueSessions(): List<TrainingSession> {
+        val list: MutableList<TrainingSession> = mutableListOf()
+        for (i in 0 until trainingSession.size) {
+            if (trainingSession[i].weekDay == WeekDay.TUESDAY) {
+                list.add(trainingSession[i])
+            }
+        }
+        return list
+    }
+
+    override fun queryWedSessions(): List<TrainingSession> {
+        val list: MutableList<TrainingSession> = mutableListOf()
+        for (i in 0 until trainingSession.size) {
+            if (trainingSession[i].weekDay == WeekDay.WEDNESDAY) {
+                list.add(trainingSession[i])
+            }
+        }
+        return list
+    }
+
+    override fun queryThuSessions(): List<TrainingSession> {
+        val list: MutableList<TrainingSession> = mutableListOf()
+        for (i in 0 until trainingSession.size) {
+            if (trainingSession[i].weekDay == WeekDay.THURSDAY) {
+                list.add(trainingSession[i])
+            }
+        }
+        return list
+    }
+
+    override fun queryFriSessions(): List<TrainingSession> {
+        val list: MutableList<TrainingSession> = mutableListOf()
+        for (i in 0 until trainingSession.size) {
+            if (trainingSession[i].weekDay == WeekDay.FRIDAY) {
+                list.add(trainingSession[i])
+            }
+        }
+        return list
+    }
+
+    override fun querySatSessions(): List<TrainingSession> {
+        val list: MutableList<TrainingSession> = mutableListOf()
+        for (i in 0 until trainingSession.size) {
+            if (trainingSession[i].weekDay == WeekDay.SATURDAY) {
+                list.add(trainingSession[i])
+            }
+        }
+        return list
+    }
+
+    override fun querySunSessions(): List<TrainingSession> {
+        val list: MutableList<TrainingSession> = mutableListOf()
+        for (i in 0 until trainingSession.size) {
+            if (trainingSession[i].weekDay == WeekDay.SUNDAY) {
+                list.add(trainingSession[i])
+            }
+        }
+        return list
+    }
 }

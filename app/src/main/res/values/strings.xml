@@ -41,5 +41,6 @@
     <string name="defaultRoom">Default Room</string>
     <string name="defaultParticipants">0 participants</string>
     <string name="defaultDay">Today</string>
+    <string name="quitar">Quit</string>
 
 </resources>
