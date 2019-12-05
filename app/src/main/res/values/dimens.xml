@@ -11,4 +11,5 @@
 
     <dimen name="session_root_padding">16dp</dimen>
     <dimen name="session_vertical_margin">8dp</dimen>
+    <dimen name="padding_item_day">40dp</dimen>
 </resources>

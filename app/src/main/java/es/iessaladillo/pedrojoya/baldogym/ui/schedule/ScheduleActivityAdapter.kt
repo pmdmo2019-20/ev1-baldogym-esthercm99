@@ -65,20 +65,23 @@ class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.
                         userJoined = false
                         btnJoin.text = btnJoin.context.getString(R.string.schedule_item_join)
                         participants -= 1
+                        lblParticipants.text = lblParticipants.resources.getQuantityString(R.plurals.schedule_item_participants, participants, participants)
                     } else {
                         userJoined = true
                         btnJoin.text = btnJoin.context.getString(R.string.schedule_item_quit)
                         participants += 1
+                        lblParticipants.text = lblParticipants.resources.getQuantityString(R.plurals.schedule_item_participants, participants, participants)
                     }
                 }
 
-                // No funciona getString por lo que está de esta manera y no con plurals:
-                if(participants <= 1) {
-                    lblParticipants.text = String.format("%d participant", participants)
+                // Para los cambios de listas por días se cambie el botón dependiendo si se ha unido o no:
+                if(userJoined) {
+                    btnJoin.text = btnJoin.context.getString(R.string.schedule_item_quit)
                 } else {
-                    lblParticipants.text = String.format("%d participants", participants)
+                    btnJoin.text = btnJoin.context.getString(R.string.schedule_item_join)
                 }
-                //lblParticipants.text = getString(R.plurals.schedule_item_participants, participants)
+
+                lblParticipants.text = lblParticipants.resources.getQuantityString(R.plurals.schedule_item_participants, participants, participants)
             }
         }
 

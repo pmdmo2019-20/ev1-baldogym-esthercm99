@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/schedule_item_padding"
-    tools:context=".ui.schedule.ScheduleActivity">
+    tools:context=".ui.schedule.ScheduleActivity"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/lblHour"

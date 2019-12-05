@@ -43,4 +43,9 @@ class ScheduleActivityViewModel (private val repository: Repository,
         return list
     }
 
+    fun submitList(filter: WeekDay) {
+        listSessionTraining = querySessions(filter).toMutableList()
+        _listSession.value = listSessionTraining
+    }
+
 }
