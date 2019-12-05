@@ -35,4 +35,10 @@
     <string name="session_not_found">Training session not found</string>
     <string name="session_imgPhoto">Training session photo</string>
 
+    <string name="firstHour">17:00 – 18:00</string>
+    <string name="defaultTrainer">Entrenador 0</string>
+    <string name="defaultSession">Session</string>
+    <string name="defaultRoom">Default Room</string>
+    <string name="defaultParticipants">0 participants</string>
+
 </resources>
