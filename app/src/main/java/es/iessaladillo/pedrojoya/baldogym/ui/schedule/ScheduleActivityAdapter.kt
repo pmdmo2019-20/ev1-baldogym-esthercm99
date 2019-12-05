@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import es.iessaladillo.pedrojoya.baldogym.R
 import es.iessaladillo.pedrojoya.baldogym.data.entity.TrainingSession
@@ -64,11 +65,15 @@ class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.
                     if(userJoined) {
                         userJoined = false
                         btnJoin.text = btnJoin.context.getString(R.string.schedule_item_join)
+                        btnJoin.background = btnJoin.context.getDrawable(R.drawable.schedule_btn_join_background)
+                        btnJoin.setTextColor(ResourcesCompat.getColor(btnJoin.resources, R.color.black, null))
                         participants -= 1
                         lblParticipants.text = lblParticipants.resources.getQuantityString(R.plurals.schedule_item_participants, participants, participants)
                     } else {
                         userJoined = true
                         btnJoin.text = btnJoin.context.getString(R.string.schedule_item_quit)
+                        btnJoin.background = btnJoin.context.getDrawable(R.drawable.schedule_btn_quit_background)
+                        btnJoin.setTextColor(ResourcesCompat.getColor(btnJoin.resources, R.color.white, null))
                         participants += 1
                         lblParticipants.text = lblParticipants.resources.getQuantityString(R.plurals.schedule_item_participants, participants, participants)
                     }
@@ -77,8 +82,12 @@ class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.
                 // Para los cambios de listas por días se cambie el botón dependiendo si se ha unido o no:
                 if(userJoined) {
                     btnJoin.text = btnJoin.context.getString(R.string.schedule_item_quit)
+                    btnJoin.background = btnJoin.context.getDrawable(R.drawable.schedule_btn_quit_background)
+                    btnJoin.setTextColor(ResourcesCompat.getColor(btnJoin.resources, R.color.white, null))
                 } else {
                     btnJoin.text = btnJoin.context.getString(R.string.schedule_item_join)
+                    btnJoin.background = btnJoin.context.getDrawable(R.drawable.schedule_btn_join_background)
+                    btnJoin.setTextColor(ResourcesCompat.getColor(btnJoin.resources, R.color.black, null))
                 }
 
                 lblParticipants.text = lblParticipants.resources.getQuantityString(R.plurals.schedule_item_participants, participants, participants)

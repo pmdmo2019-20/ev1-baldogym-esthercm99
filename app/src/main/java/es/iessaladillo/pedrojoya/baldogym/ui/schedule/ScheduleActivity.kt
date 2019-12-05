@@ -1,6 +1,5 @@
 package es.iessaladillo.pedrojoya.baldogym.ui.schedule
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -31,11 +30,11 @@ class ScheduleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.schedule_activity)
+        currenDay(getCurrentWeekDay())
         setupViews()
     }
 
     private fun setupViews() {
-        currentDay.text = getCurrentWeekDay().name
         setupRecyclerView()
         onClickDays()
         observeTasks()
@@ -61,19 +60,119 @@ class ScheduleActivity : AppCompatActivity() {
         }
     }
 
-    private fun onClickDays() {
-        sltMon.setOnClickListener { onClickDay(sltMon, WeekDay.MONDAY) }
-        sltTue.setOnClickListener { onClickDay(sltTue, WeekDay.TUESDAY) }
-        sltWed.setOnClickListener { onClickDay(sltWed, WeekDay.WEDNESDAY) }
-        sltThu.setOnClickListener { onClickDay(sltThu, WeekDay.THURSDAY) }
-        sltFri.setOnClickListener { onClickDay(sltFri, WeekDay.FRIDAY) }
-        sltSat.setOnClickListener { onClickDay(sltSat, WeekDay.SATURDAY) }
-        sltSun.setOnClickListener { onClickDay(sltSun, WeekDay.SUNDAY) }
+    private fun currenDay(filter: WeekDay) {
+        viewModel.submitList(filter)
+        // Monday
+        if(filter == WeekDay.MONDAY) {
+            changeColor(sltSat)
+            // Tuesday
+        } else if (filter == WeekDay.TUESDAY) {
+            changeColor(sltTue)
+            // Wednesday
+        } else if (filter == WeekDay.WEDNESDAY) {
+            changeColor(sltWed)
+            // Thursday
+        } else if (filter == WeekDay.THURSDAY) {
+            changeColor(sltThu)
+            // Friday
+        } else if (filter == WeekDay.FRIDAY) {
+            changeColor(sltFri)
+            // Saturday
+        } else if (filter == WeekDay.SATURDAY) {
+            changeColor(sltSat)
+            // Sunday
+        } else if (filter == WeekDay.SUNDAY) {
+            changeColor(sltSun)
+        }
+
     }
 
-    private fun onClickDay(textView: TextView, filter: WeekDay) {
+    private fun onClickDays() {
+        sltMon.setOnClickListener { changeDay(sltMon, WeekDay.MONDAY) }
+        sltTue.setOnClickListener { changeDay(sltTue, WeekDay.TUESDAY) }
+        sltWed.setOnClickListener { changeDay(sltWed, WeekDay.WEDNESDAY) }
+        sltThu.setOnClickListener { changeDay(sltThu, WeekDay.THURSDAY) }
+        sltFri.setOnClickListener { changeDay(sltFri, WeekDay.FRIDAY) }
+        sltSat.setOnClickListener { changeDay(sltSat, WeekDay.SATURDAY) }
+        sltSun.setOnClickListener { changeDay(sltSun, WeekDay.SUNDAY) }
+    }
+
+    private fun changeDay(textView: TextView, filter: WeekDay) {
         viewModel.submitList(filter)
-        textView.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+        changeColor(textView)
+    }
+
+    private fun changeColor(textView: TextView) {
+        // Monday
+        if(textView.text == getString(R.string.schedule_mon)) {
+            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+            sltTue.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltWed.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltThu.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltFri.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSat.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSun.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+
+        // Tuesday
+        } else if (textView.text == getString(R.string.schedule_tue)) {
+            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+            sltMon.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltWed.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltThu.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltFri.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSat.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSun.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+
+        // Wednesday
+        } else if (textView.text == getString(R.string.schedule_wed)) {
+            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+            sltMon.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltTue.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltThu.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltFri.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSat.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSun.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+
+        // Thursday
+        } else if (textView.text == getString(R.string.schedule_thu)) {
+            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+            sltMon.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltTue.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltWed.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltFri.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSat.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSun.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+
+        // Friday
+        } else if (textView.text == getString(R.string.schedule_fri)) {
+            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+            sltMon.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltTue.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltWed.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltThu.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSat.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSun.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+
+        // Saturday
+        } else if (textView.text == getString(R.string.schedule_sat)) {
+            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+            sltMon.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltTue.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltWed.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltThu.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltFri.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSun.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+
+        // Sunday
+        } else if (textView.text == getString(R.string.schedule_sun)) {
+            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+            sltMon.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltWed.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltThu.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltFri.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltSat.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+            sltTue.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
+        }
     }
 
 }
