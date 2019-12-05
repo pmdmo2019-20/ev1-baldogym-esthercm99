@@ -48,25 +48,40 @@
 
 
 
-    <!-- Para la barra baja
+
     <RelativeLayout
         android:id="@+id/llAddTaskPanel"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:paddingStart="@dimen/tasks_llAddTaskPanel_horizontal_padding"
-        android:paddingTop="@dimen/tasks_llAddTaskPanel_vertical_padding"
-        android:paddingEnd="@dimen/tasks_llAddTaskPanel_horizontal_padding"
-        android:paddingBottom="@dimen/tasks_llAddTaskPanel_vertical_padding"
+        android:layout_height="50dp"
+        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
 
+        <TextView
+            android:id="@+id/lblParticipants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="center"
+            
+            android:text="@string/defaultParticipants"
+            android:paddingStart="@dimen/schedule_item_padding"
+            tools:ignore="RtlSymmetry" />
 
+        <Button
+            android:id="@+id/btnJoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_item_join"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/session_btn_join_background"
+            android:textColor="@color/white"
+            app:layout_constraintRight_toRightOf="parent"/>
 
     </RelativeLayout>
 
-    -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
