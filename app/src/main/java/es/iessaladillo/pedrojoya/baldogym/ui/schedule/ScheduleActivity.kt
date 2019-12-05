@@ -31,6 +31,7 @@ class ScheduleActivity : AppCompatActivity() {
 
     private fun setupViews() {
         setupRecyclerView()
+        observeTasks()
     }
     private fun setupRecyclerView() {
         lstSession.run {
@@ -40,7 +41,6 @@ class ScheduleActivity : AppCompatActivity() {
             addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
             itemAnimator = DefaultItemAnimator()
         }
-        observeTasks()
     }
     private fun observeTasks() {
         viewModel.listSession.observe(this) {

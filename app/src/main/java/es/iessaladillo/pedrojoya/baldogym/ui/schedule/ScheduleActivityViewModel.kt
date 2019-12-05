@@ -19,6 +19,12 @@ class ScheduleActivityViewModel (private val repository: Repository,
         _listSession.value = listSessionTraining
     }
 
+    // Filtra sesiones por los días:
+    private fun queryTasks(filter: ScheduleActivityFilter?) {
+        if(filter == ScheduleActivityFilter.MON) {
+            _listSession.value = repository.queryAllSessions()
+        }
+    }
 
 
 }
