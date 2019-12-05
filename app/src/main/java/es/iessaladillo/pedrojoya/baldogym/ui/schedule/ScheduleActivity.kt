@@ -180,7 +180,7 @@ class ScheduleActivity : AppCompatActivity() {
     }
 
     private fun clickItem() {
-        // Lo he puesto ahi porque el item no me funciona
+        // Lo he puesto ahi porque el item no me funciona, sé que esa no es su funcionalidad pero para que se sepa que funciona
         currentDay.setOnClickListener{ navigateToSessionActivity() }
     }
 

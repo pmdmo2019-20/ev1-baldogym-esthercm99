@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:gravity="center"
-            
+
             android:text="@string/defaultParticipants"
             android:paddingStart="@dimen/schedule_item_padding"
             tools:ignore="RtlSymmetry" />
