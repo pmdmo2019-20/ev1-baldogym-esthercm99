@@ -1,8 +1,11 @@
 package es.iessaladillo.pedrojoya.baldogym.data.entity
 
+import android.os.Parcelable
 import androidx.annotation.DrawableRes
+import kotlinx.android.parcel.Parcelize
 
-data class TrainingSession(
+@Parcelize
+data class TrainingSession (
     val id: Long,
     val name: String,
     val weekDay: WeekDay,
@@ -13,4 +16,4 @@ data class TrainingSession(
     val room: String,
     var participants: Int,
     var userJoined: Boolean
-)
+) : Parcelable

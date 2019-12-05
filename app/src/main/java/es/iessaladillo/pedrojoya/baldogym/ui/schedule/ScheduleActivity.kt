@@ -16,6 +16,7 @@ import es.iessaladillo.pedrojoya.baldogym.data.LocalRepository
 import es.iessaladillo.pedrojoya.baldogym.data.entity.TrainingSession
 import es.iessaladillo.pedrojoya.baldogym.data.entity.WeekDay
 import es.iessaladillo.pedrojoya.baldogym.data.entity.getCurrentWeekDay
+import es.iessaladillo.pedrojoya.baldogym.ui.trainingsession.TrainingSessionActivity
 import kotlinx.android.synthetic.main.schedule_activity.*
 
 class ScheduleActivity : AppCompatActivity() {
@@ -23,14 +24,15 @@ class ScheduleActivity : AppCompatActivity() {
     private val viewModel: ScheduleActivityViewModel by viewModels {
         ScheduleActivityViewModelFactory(LocalRepository, application)
     }
-    private val listAdapter : ScheduleActivityAdapter = ScheduleActivityAdapter().also {
-        it.onCheckListener = { observeTasks() }
+    private val listAdapter : ScheduleActivityAdapter = ScheduleActivityAdapter().apply {
+        onCheckListener = { observeTasks() }
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.schedule_activity)
-        currenDay(getCurrentWeekDay())
+        currentDay(getCurrentWeekDay())
         setupViews()
     }
 
@@ -38,6 +40,7 @@ class ScheduleActivity : AppCompatActivity() {
         setupRecyclerView()
         onClickDays()
         observeTasks()
+        clickItem()
     }
     private fun setupRecyclerView() {
         lstSession.run {
@@ -60,7 +63,8 @@ class ScheduleActivity : AppCompatActivity() {
         }
     }
 
-    private fun currenDay(filter: WeekDay) {
+    private fun currentDay(filter: WeekDay) {
+        currentDay.text = getCurrentWeekDay().name
         viewModel.submitList(filter)
         // Monday
         if(filter == WeekDay.MONDAY) {
@@ -173,6 +177,15 @@ class ScheduleActivity : AppCompatActivity() {
             sltSat.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
             sltTue.setTextColor(ResourcesCompat.getColor(resources, R.color.white_semi, null))
         }
+    }
+
+    private fun clickItem() {
+        currentDay.setOnClickListener{ navigateToSessionActivity() }
+    }
+
+    private fun navigateToSessionActivity() {
+        val intent = TrainingSessionActivity.newIntent(applicationContext, viewModel.obtainBundle())
+        startActivityForResult(intent, 1)
     }
 
 }

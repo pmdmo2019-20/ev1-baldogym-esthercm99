@@ -3,6 +3,7 @@ package es.iessaladillo.pedrojoya.baldogym.ui.schedule
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,6 +11,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import es.iessaladillo.pedrojoya.baldogym.R
 import es.iessaladillo.pedrojoya.baldogym.data.entity.TrainingSession
+import es.iessaladillo.pedrojoya.baldogym.ui.trainingsession.TrainingSessionActivity
 import java.util.*
 
 class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.ViewHolder>() {
@@ -17,6 +19,7 @@ class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.
     private var data: List<TrainingSession> = emptyList()
     var onCheckListener: ((Int) -> Unit)? = null
 
+    private var onItemClickListener: OnItemClickListener? = null
 
     fun currentList(position: Int): TrainingSession {
         return data[position]
@@ -25,7 +28,7 @@ class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemView = layoutInflater.inflate(R.layout.schedule_activity_item, parent, false)
-        return ViewHolder(itemView)
+        return ViewHolder(itemView, onItemClickListener)
     }
 
     override fun getItemCount(): Int = data.size
@@ -40,7 +43,7 @@ class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View, onItemClickListener: OnItemClickListener?) : RecyclerView.ViewHolder(itemView) {
         private val btnJoin: Button = itemView.findViewById(R.id.btnJoin)
         private val lblTitleSession: TextView = itemView.findViewById(R.id.lblTitleSession)
         private val lblTrainer: TextView = itemView.findViewById(R.id.lblTrainer)
@@ -48,9 +51,17 @@ class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.
         private val lblParticipants: TextView = itemView.findViewById(R.id.lblParticipants)
         private val imgSession: ImageView = itemView.findViewById(R.id.imgSession)
 
+
+
         init {
             btnJoin.setOnClickListener {
                 onCheckListener?.invoke(adapterPosition)
+            }
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClickListener?.onItemClick(position)
+                }
             }
         }
 
@@ -94,5 +105,10 @@ class ScheduleActivityAdapter () : RecyclerView.Adapter<ScheduleActivityAdapter.
             }
         }
 
+    }
+
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
     }
 }

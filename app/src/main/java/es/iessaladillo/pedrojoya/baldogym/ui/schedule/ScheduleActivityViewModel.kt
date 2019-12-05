@@ -1,6 +1,8 @@
 package es.iessaladillo.pedrojoya.baldogym.ui.schedule
 
 import android.app.Application
+import android.os.Bundle
+import android.os.Parcelable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -48,4 +50,10 @@ class ScheduleActivityViewModel (private val repository: Repository,
         _listSession.value = listSessionTraining
     }
 
+    fun obtainBundle(): Bundle {
+        val bundle = Bundle()
+        bundle.putParcelable("RC_LIST", listSession.value?.get(0))
+        return bundle
+    }
 }
+

@@ -30,8 +30,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/lblSessionTitle"
-        android:text="@string/defaultSession"
+        android:text="@string/defaultTrainer"
         android:textSize="20sp"
+        android:layout_marginTop="@dimen/schedule_item_padding"
+        android:layout_marginStart="@dimen/schedule_item_padding"/>
+    <TextView
+        android:id="@+id/lblSessionDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lblSessionTrainer"
+        android:text="@string/defaultDay"
+        android:textSize="15sp"
+        android:textAllCaps="true"
         android:layout_marginTop="@dimen/schedule_item_padding"
         android:layout_marginStart="@dimen/schedule_item_padding"/>
 
