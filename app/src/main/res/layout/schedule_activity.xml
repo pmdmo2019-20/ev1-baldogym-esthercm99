@@ -9,19 +9,79 @@
 
     <!-- TODO -->
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/selectDayWeek"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/schedule_item_padding"
+        android:background="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
         <TextView
+            android:id="@+id/sltMon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_mon"
+            android:textColor="@color/white"
+            android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
+            android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"
+            android:background="@drawable/schedule_btn_quit_background"
+            tools:ignore="RtlSymmetry" />
+        <TextView
+            android:id="@+id/sltTue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_tue"
+            android:textColor="@color/white"
+            android:background="@drawable/schedule_btn_quit_background"
+            android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
+            android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"/>
+        <TextView
+            android:id="@+id/sltWed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_wed"
+            android:textColor="@color/white"
+            android:background="@drawable/schedule_btn_quit_background"
+            android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
+            android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"/>
+        <TextView
+            android:id="@+id/sltThu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_thu"
+            android:textColor="@color/white"
+            android:background="@drawable/schedule_btn_quit_background"
+            android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
+            android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"/>
+        <TextView
+            android:id="@+id/sltFri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_fri"
+            android:textColor="@color/white"
+            android:background="@drawable/schedule_btn_quit_background"
+            android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
+            android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"/>
+        <TextView
+            android:id="@+id/sltSat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_sat"
+            android:textColor="@color/white"
+            android:background="@drawable/schedule_btn_quit_background"
+            android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
+            android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"/>
+        <TextView
+            android:id="@+id/sltSun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_sun"
+            android:textColor="@color/white"
+            android:background="@drawable/schedule_btn_quit_background"
+            android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/currentDay"
