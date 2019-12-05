@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.schedule.ScheduleActivity">
 
-    <!-- TODO -->
-
     <LinearLayout
         android:id="@+id/selectDayWeek"
         android:layout_width="0dp"
