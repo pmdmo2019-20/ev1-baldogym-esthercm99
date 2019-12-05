@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom
 
 object LocalRepository : Repository {
 
-    // TODO:
+    private val trainingSession: List<TrainingSession> = createWeekSchedule()
 
     private fun createWeekSchedule(): List<TrainingSession> {
 
@@ -90,5 +90,5 @@ object LocalRepository : Repository {
         }
         return trainingSessions
     }
-
+    override fun queryAllSessions(): List<TrainingSession> = trainingSession
 }

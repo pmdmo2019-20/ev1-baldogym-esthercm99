@@ -91,13 +91,29 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lstTasks"
+        android:id="@+id/lstSession"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/selectDayWeek"
+        app:layout_constraintTop_toBottomOf="@id/currentDay"
         tools:listitem="@layout/schedule_activity_item"/>
+
+    <TextView
+        android:id="@+id/lblEmptyView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/schedule_lblEmptyView_drawablePadding"
+        android:gravity="center"
+        android:text="@string/session_not_found"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/design_default_color_primary_dark"
+        app:drawableTint="@color/primary"
+        app:drawableTopCompat="@drawable/ic_no_sessions"
+        app:layout_constraintBottom_toBottomOf="@+id/lstSession"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lstSession" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
