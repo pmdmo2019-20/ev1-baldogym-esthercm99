@@ -14,6 +14,8 @@ class TrainingSessionActivity : AppCompatActivity() {
         setContentView(R.layout.training_session_activity)
     }
 
+
+
     companion object {
         const val RC_LIST = "RC_LIST"
         fun newIntent(context: Context, schedule: Bundle): Intent

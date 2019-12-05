@@ -17,7 +17,7 @@
         android:textAlignment="center"
         android:text="@string/schedule_mon"
         android:textColor="@color/white_semi"
-        android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"
+        app:layout_constraintRight_toLeftOf="@id/sltTue"
         android:background="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -30,8 +30,7 @@
         android:text="@string/schedule_tue"
         android:textColor="@color/white_semi"
         android:background="@color/black"
-        android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
-        android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"
+        app:layout_constraintRight_toLeftOf="@id/sltWed"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/sltMon"/>
     <TextView
@@ -42,8 +41,7 @@
         android:text="@string/schedule_wed"
         android:textColor="@color/white_semi"
         android:background="@color/black"
-        android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
-        android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"
+        app:layout_constraintRight_toLeftOf="@id/sltThu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/sltTue"/>
     <TextView
@@ -54,8 +52,7 @@
         android:text="@string/schedule_thu"
         android:textColor="@color/white_semi"
         android:background="@color/black"
-        android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
-        android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"
+        app:layout_constraintRight_toLeftOf="@id/sltFri"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/sltWed"/>
     <TextView
@@ -66,8 +63,7 @@
         android:text="@string/schedule_fri"
         android:textColor="@color/white_semi"
         android:background="@color/black"
-        android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
-        android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"
+        app:layout_constraintRight_toLeftOf="@id/sltSat"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/sltThu"/>
     <TextView
@@ -78,8 +74,7 @@
         android:text="@string/schedule_sat"
         android:textColor="@color/white_semi"
         android:background="@color/black"
-        android:paddingStart="@dimen/schedule_lblEmptyView_drawablePadding"
-        android:paddingEnd="@dimen/schedule_lblEmptyView_drawablePadding"
+        app:layout_constraintRight_toLeftOf="@id/sltSun"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/sltFri"/>
     <TextView
