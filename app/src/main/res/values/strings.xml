@@ -40,5 +40,6 @@
     <string name="defaultSession">Session</string>
     <string name="defaultRoom">Default Room</string>
     <string name="defaultParticipants">0 participants</string>
+    <string name="defaultDay">Today</string>
 
 </resources>
